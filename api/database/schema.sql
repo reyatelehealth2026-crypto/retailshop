@@ -1,10 +1,3 @@
--- =====================================================
--- RE-YA Retail Database Schema
--- ระบบขายปลีกออนไลน์ผ่าน LINE Mini App
--- =====================================================
-
-CREATE DATABASE IF NOT EXISTS reya_retail CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE reya_retail;
 
 -- =====================================================
 -- 1. ตารางสินค้าขายปลีก (เชื่อมโยงกับ Odoo)
