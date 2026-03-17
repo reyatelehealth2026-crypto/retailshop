@@ -21,10 +21,17 @@ require_once 'config/database.php';
 $requestUri = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-// Parse the path
-$path = parse_url($requestUri, PHP_URL_PATH);
-$path = str_replace('/api/', '', $path);
-$path = trim($path, '/');
+// Parse the path - รับจาก query string ถ้ามีจาก .htaccess
+$endpoint = $_GET['endpoint'] ?? '';
+$path = $endpoint;
+
+// ถ้าไม่มี endpoint ให้ parse จาก URI เหมือนเดิม
+if (empty($path)) {
+    $path = parse_url($requestUri, PHP_URL_PATH);
+    $path = str_replace('/api/', '', $path);
+    $path = trim($path, '/');
+}
+
 $segments = explode('/', $path);
 
 // Route to appropriate endpoint

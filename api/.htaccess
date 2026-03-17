@@ -12,15 +12,15 @@ RewriteRule ^(.*)$ $1 [R=200,L]
 
 # Retail Mini App API - Apache Rewrite Rules
 RewriteEngine On
-RewriteBase /api/
+RewriteBase /
 
 # Allow access to actual files and directories
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Redirect all requests to index.php
-RewriteRule ^(.*)$ index.php [QSA,L]
+# API routing - แก้ไซ้ำ /api/
+RewriteRule ^api/(.*)$ api/index.php?endpoint=$1 [QSA,L]
 
 # PHP settings
 php_value upload_max_filesize 10M
