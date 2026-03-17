@@ -78,9 +78,9 @@ class Database {
     public function __construct() {
         // Database configuration - using environment variables or defaults
         $this->host = getenv('DB_HOST') ?: 'localhost';
-        $this->db_name = getenv('DB_NAME') ?: 'zrismpsz_cny2';
-        $this->username = getenv('DB_USER') ?: 'zrismpsz_cny2';
-        $this->password = getenv('DB_PASS') ?: '';
+        $this->db_name = getenv('DB_NAME') ?: 'zrismpsz_demo';
+        $this->username = getenv('DB_USER') ?: 'zrismpsz_demo';
+        $this->password = getenv('DB_PASS') ?: 'zrismpsz_demo';
     }
     
     public function getConnection() {
@@ -183,8 +183,8 @@ function getAuthTokenSecret() {
     }
     return hash('sha256', implode('|', [
         getEnvValue('DB_HOST', 'localhost'),
-        getEnvValue('DB_NAME', 'zrismpsz_cny2'),
-        getEnvValue('DB_USER', 'zrismpsz_cny2'),
+        getEnvValue('DB_NAME', 'zrismpsz_demo'),
+        getEnvValue('DB_USER', 'zrismpsz_demo'),
         __FILE__
     ]));
 }
